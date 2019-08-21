@@ -1,0 +1,111 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="domenicobarretta.pnotes"
+    android:versionCode="1"
+    android:versionName="1.0" >
+
+    <uses-sdk
+        android:minSdkVersion="19"
+        android:targetSdkVersion="25" />
+
+    <uses-feature
+        android:name="android.hardware.camera"
+        android:required="true" />
+
+    <uses-permission
+        android:name="android.permission.WRITE_EXTERNAL_STORAGE"
+        android:maxSdkVersion="18" />
+    <uses-permission android:name="android.permission.RECORD_AUDIO" />
+    <uses-permission android:name="android.permission.INTERNET" />
+
+    <meta-data
+        android:name="android.support.VERSION"
+        android:value="25.3.1" />
+
+    <application
+        android:allowBackup="true"
+        android:icon="@drawable/launcher"
+        android:label="@string/app_name"
+        android:roundIcon="@drawable/launcher"
+        android:supportsRtl="true"
+        android:theme="@style/AppTheme" >
+        <activity
+            android:name="domenicobarretta.pnotes.MainActivity"
+            android:configChanges="orientation|screenSize"
+            android:label="@string/app_name"
+            android:theme="@style/AppTheme.NoActionBar" >
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+
+        <provider
+            android:name="android.support.v4.content.FileProvider"
+            android:authorities="domenicobarretta.pnotes.fileprovider"
+            android:exported="false"
+            android:grantUriPermissions="true" >
+            <meta-data
+                android:name="android.support.FILE_PROVIDER_PATHS"
+                android:resource="@xml/file_paths" >
+            </meta-data>
+        </provider>
+
+        <activity
+            android:name="domenicobarretta.pnotes.ImageActivity"
+            android:configChanges="orientation|screenSize"
+            android:label="Salva immagine"
+            android:theme="@style/AppTheme.NoActionBar" >
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="domenicobarretta.pnotes.MainActivity" />
+        </activity>
+        <activity
+            android:name="domenicobarretta.pnotes.ImageModActivity"
+            android:configChanges="orientation|screenSize"
+            android:label="Modifica nota"
+            android:theme="@style/AppTheme.NoActionBar" >
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="domenicobarretta.pnotes.MainActivity" />
+        </activity>
+        <activity
+            android:name="domenicobarretta.pnotes.WebActivity"
+            android:configChanges="orientation|screenSize"
+            android:label="Browser"
+            android:theme="@style/AppTheme.NoActionBar" >
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="domenicobarretta.pnotes.MainActivity" />
+        </activity>
+        <activity
+            android:name="domenicobarretta.pnotes.SaveBookmarkActivity"
+            android:configChanges="orientation|screenSize"
+            android:label="Salva pagina"
+            android:theme="@style/AppTheme.NoActionBar" >
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="domenicobarretta.pnotes.WebActivity" />
+        </activity>
+        <activity
+            android:name="domenicobarretta.pnotes.WebModActivity"
+            android:configChanges="orientation|screenSize"
+            android:label="Modifica nota"
+            android:theme="@style/AppTheme.NoActionBar" >
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="domenicobarretta.pnotes.MainActivity" />
+        </activity>
+        <activity
+            android:name="domenicobarretta.pnotes.FullScreenActivity"
+            android:configChanges="orientation|screenSize"
+            android:label="Visualizza immagine"
+            android:theme="@style/AppTheme.NoActionBar" >
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="domenicobarretta.pnotes.ImageActivity" />
+        </activity>
+    </application>
+
+</manifest>
